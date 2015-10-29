@@ -465,6 +465,51 @@ namespace FirstREST.Lib_Primavera
 
         }
 
+        public static List<Model.Artigo> ListaArtigosCategoria(string cat)
+        {
+
+            StdBELista objList;
+
+            Model.Artigo art = new Model.Artigo();
+            List<Model.Artigo> listArts = new List<Model.Artigo>();
+
+            if (PriEngine.InitializeCompany(FirstREST.Properties.Settings.Default.Company.Trim(), FirstREST.Properties.Settings.Default.User.Trim(), FirstREST.Properties.Settings.Default.Password.Trim()) == true)
+            {
+
+                objList = PriEngine.Engine.Consulta("SELECT Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE ArtigoMoeda.Artigo= Artigo.Artigo AND Artigo.SubFamilia = '"+ cat+"'");
+
+                while (!objList.NoFim())
+                {
+                    art = new Model.Artigo();
+                    art.CodArtigo = objList.Valor("artigo");
+                    art.DescArtigo = objList.Valor("descricao");
+                    art.PVP1 = objList.Valor("PVP1");
+                    art.PVP2 = objList.Valor("PVP2");
+                    art.PVP3 = objList.Valor("PVP3");
+                    art.Formato = objList.Valor("CDU_Formato");
+                    art.ISBN10 = objList.Valor("CDU_ISBN10");
+                    art.ISBN13 = objList.Valor("CDU_ISBN13");
+                    art.Ano = objList.Valor("CDU_Ano");
+                    art.Autor = objList.Valor("CDU_Autor");
+                    art.Rating = objList.Valor("CDU_Rating");
+                    art.Sinopse = objList.Valor("CDU_Sinopse");
+                    art.Categoria = objList.Valor("SubFamilia");
+
+                    listArts.Add(art);
+                    objList.Seguinte();
+                }
+
+                return listArts;
+
+            }
+            else
+            {
+                return null;
+
+            }
+
+        }
+
         #endregion Artigo
 
    

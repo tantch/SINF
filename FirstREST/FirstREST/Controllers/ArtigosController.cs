@@ -61,6 +61,12 @@ namespace FirstREST.Controllers
         {
             return Lib_Primavera.PriIntegration.ListaArtigosRecentes(lim);
         }
+
+        [Route("api/artigos/cat/{cat}")]
+        public IEnumerable<Lib_Primavera.Model.Artigo> GetCat(string cat)
+        {
+            return Lib_Primavera.PriIntegration.ListaArtigosCategoria(cat);
+        }
     }
 }
 
