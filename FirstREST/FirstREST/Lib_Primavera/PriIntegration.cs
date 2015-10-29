@@ -646,7 +646,7 @@ namespace FirstREST.Lib_Primavera
              
             PreencheRelacaoVendas rl = new PreencheRelacaoVendas();
             List<Model.LinhaDocVenda> lstlindv = new List<Model.LinhaDocVenda>();
-            
+            bool iniciaTransaccao = false;
             try
             {
                 if (PriEngine.InitializeCompany(FirstREST.Properties.Settings.Default.Company.Trim(), FirstREST.Properties.Settings.Default.User.Trim(), FirstREST.Properties.Settings.Default.Password.Trim()) == true)
@@ -654,23 +654,32 @@ namespace FirstREST.Lib_Primavera
                     // Atribui valores ao cabecalho do doc
                     //myEnc.set_DataDoc(dv.Data);
                     myEnc.set_Entidade(dv.Entidade);
-                    myEnc.set_Serie(dv.Serie);
+                    myEnc.set_Serie("B");
                     myEnc.set_Tipodoc("ECL");
                     myEnc.set_TipoEntidade("C");
+                    myEnc.set_CondPag("1");
+                    myEnc.set_Seccao("2");
+                    myEnc.set_Origem("Web");
                     // Linhas do documento para a lista de linhas
                     lstlindv = dv.LinhasDoc;
+                    StdBELista objList;
                     PriEngine.Engine.Comercial.Vendas.PreencheDadosRelacionados(myEnc, rl);
                     foreach (Model.LinhaDocVenda lin in lstlindv)
                     {
-                        PriEngine.Engine.Comercial.Vendas.AdicionaLinha(myEnc, lin.CodArtigo, lin.Quantidade, "", "", lin.PrecoUnitario, lin.Desconto);
+                        string st = "SELECT PVP1 From ArtigoMoeda WHERE Artigo='" + lin.CodArtigo + "'";
+                        objList = PriEngine.Engine.Consulta(st);
+                        double pvp = objList.Valor("PVP1");
+
+                        PriEngine.Engine.Comercial.Vendas.AdicionaLinha(myEnc, lin.CodArtigo, lin.Quantidade, "", "", pvp, 0);
                     }
 
 
-                   // PriEngine.Engine.Comercial.Compras.TransformaDocumento(
-
+                    // PriEngine.Engine.Comercial.Compras.TransformaDocumento(
+                    iniciaTransaccao = true;
                     PriEngine.Engine.IniciaTransaccao();
                     PriEngine.Engine.Comercial.Vendas.Actualiza(myEnc, "Teste");
                     PriEngine.Engine.TerminaTransaccao();
+                    iniciaTransaccao = false;
                     erro.Erro = 0;
                     erro.Descricao = "Sucesso";
                     return erro;
