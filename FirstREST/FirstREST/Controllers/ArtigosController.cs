@@ -51,7 +51,16 @@ namespace FirstREST.Controllers
                 return artigo;
             }
         }
-
+        [Route("api/artigos/pesquisaNome/{nome}/{num}")]
+        public IEnumerable<Lib_Primavera.Model.Artigo> Get(String nome, int num)
+        {
+            return Lib_Primavera.PriIntegration.ListaArtigosNome(nome, num);
+        }
+        [Route("api/artigos/listaRecentes/{lim}")]
+        public IEnumerable<Lib_Primavera.Model.Artigo> Get(int lim)
+        {
+            return Lib_Primavera.PriIntegration.ListaArtigosRecentes(lim);
+        }
     }
 }
 
