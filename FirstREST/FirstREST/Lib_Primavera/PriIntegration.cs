@@ -15,14 +15,14 @@ namespace FirstREST.Lib_Primavera
 {
     public class PriIntegration
     {
-        
+
 
         # region Cliente
 
         public static List<Model.Cliente> ListaClientes()
         {
-            
-            
+
+
             StdBELista objList;
 
             List<Model.Cliente> listClientes = new List<Model.Cliente>();
@@ -34,7 +34,7 @@ namespace FirstREST.Lib_Primavera
 
                 objList = PriEngine.Engine.Consulta("SELECT Cliente, Nome, Moeda, NumContrib as NumContribuinte, Fac_Mor AS campo_exemplo FROM  CLIENTES");
 
-                
+
                 while (!objList.NoFim())
                 {
                     listClientes.Add(new Model.Cliente
@@ -57,7 +57,7 @@ namespace FirstREST.Lib_Primavera
 
         public static Lib_Primavera.Model.Cliente GetCliente(string codCliente)
         {
-            
+
 
             GcpBECliente objCli = new GcpBECliente();
 
@@ -89,7 +89,7 @@ namespace FirstREST.Lib_Primavera
         public static Lib_Primavera.Model.RespostaErro UpdCliente(Lib_Primavera.Model.Cliente cliente)
         {
             Lib_Primavera.Model.RespostaErro erro = new Model.RespostaErro();
-           
+
 
             GcpBECliente objCli = new GcpBECliente();
 
@@ -194,7 +194,7 @@ namespace FirstREST.Lib_Primavera
         {
 
             Lib_Primavera.Model.RespostaErro erro = new Model.RespostaErro();
-            
+
 
             GcpBECliente myCli = new GcpBECliente();
 
@@ -233,7 +233,7 @@ namespace FirstREST.Lib_Primavera
 
         }
 
-       
+
 
         #endregion Cliente;   // -----------------------------  END   CLIENTE    -----------------------
 
@@ -252,31 +252,31 @@ namespace FirstREST.Lib_Primavera
 
                 objList = PriEngine.Engine.Consulta("SELECT Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE Artigo.Artigo = ArtigoMoeda.Artigo AND Artigo.Artigo = 'LV." + codArtigo + "'");
 
-                    if (!objList.NoFim())
-                    {
+                if (!objList.NoFim())
+                {
 
-                        art = new Model.Artigo();
-                        art.CodArtigo = objList.Valor("artigo");
-                        art.DescArtigo = objList.Valor("descricao");
-                        art.PVP1 = objList.Valor("PVP1");
-                        art.PVP2 = objList.Valor("PVP2");
-                        art.PVP3 = objList.Valor("PVP3");
-                        art.Formato = objList.Valor("CDU_Formato");
-                        art.ISBN10 = objList.Valor("CDU_ISBN10");
-                        art.ISBN13 = objList.Valor("CDU_ISBN13");
-                        art.Ano = objList.Valor("CDU_Ano");
-                        art.Autor = objList.Valor("CDU_Autor");
-                        art.Rating = objList.Valor("CDU_Rating");
-                        art.Sinopse = objList.Valor("CDU_Sinopse");
-                        art.Categoria = objList.Valor("SubFamilia");
-                        return art;
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                
-                
+                    art = new Model.Artigo();
+                    art.CodArtigo = objList.Valor("artigo");
+                    art.DescArtigo = objList.Valor("descricao");
+                    art.PVP1 = objList.Valor("PVP1");
+                    art.PVP2 = objList.Valor("PVP2");
+                    art.PVP3 = objList.Valor("PVP3");
+                    art.Formato = objList.Valor("CDU_Formato");
+                    art.ISBN10 = objList.Valor("CDU_ISBN10");
+                    art.ISBN13 = objList.Valor("CDU_ISBN13");
+                    art.Ano = objList.Valor("CDU_Ano");
+                    art.Autor = objList.Valor("CDU_Autor");
+                    art.Rating = objList.Valor("CDU_Rating");
+                    art.Sinopse = objList.Valor("CDU_Sinopse");
+                    art.Categoria = objList.Valor("SubFamilia");
+                    return art;
+                }
+                else
+                {
+                    return null;
+                }
+
+
             }
             else
             {
@@ -286,7 +286,7 @@ namespace FirstREST.Lib_Primavera
         }
         public static Lib_Primavera.Model.Artigo GetArtigoNome(string nome)
         {
-            
+
             StdBELista objList;
 
             GcpBEArtigo objArtigo = new GcpBEArtigo();
@@ -298,28 +298,29 @@ namespace FirstREST.Lib_Primavera
                 objList = PriEngine.Engine.Consulta("SELECT Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE Artigo.Artigo = ArtigoMoeda.Artigo AND Artigo.Descricao LIKE '%" + nome + "%'");
 
 
-               if (!objList.NoFim()) {
+                if (!objList.NoFim())
+                {
 
-                   art = new Model.Artigo();
-                   art.CodArtigo = objList.Valor("artigo");
-                   art.DescArtigo = objList.Valor("descricao");
-                   art.PVP1 = objList.Valor("PVP1");
-                   art.PVP2 = objList.Valor("PVP2");
-                   art.PVP3 = objList.Valor("PVP3");
-                   art.Formato = objList.Valor("CDU_Formato");
-                   art.ISBN10 = objList.Valor("CDU_ISBN10");
-                   art.ISBN13 = objList.Valor("CDU_ISBN13");
-                   art.Ano = objList.Valor("CDU_Ano");
-                   art.Autor = objList.Valor("CDU_Autor");
-                   art.Rating = objList.Valor("CDU_Rating");
-                   art.Sinopse = objList.Valor("CDU_Sinopse");
-                   art.Categoria = objList.Valor("SubFamilia");
+                    art = new Model.Artigo();
+                    art.CodArtigo = objList.Valor("artigo");
+                    art.DescArtigo = objList.Valor("descricao");
+                    art.PVP1 = objList.Valor("PVP1");
+                    art.PVP2 = objList.Valor("PVP2");
+                    art.PVP3 = objList.Valor("PVP3");
+                    art.Formato = objList.Valor("CDU_Formato");
+                    art.ISBN10 = objList.Valor("CDU_ISBN10");
+                    art.ISBN13 = objList.Valor("CDU_ISBN13");
+                    art.Ano = objList.Valor("CDU_Ano");
+                    art.Autor = objList.Valor("CDU_Autor");
+                    art.Rating = objList.Valor("CDU_Rating");
+                    art.Sinopse = objList.Valor("CDU_Sinopse");
+                    art.Categoria = objList.Valor("SubFamilia");
                     return art;
-               }
-               else
-               {
-                   return null;
-               }
+                }
+                else
+                {
+                    return null;
+                }
 
             }
             else
@@ -329,7 +330,7 @@ namespace FirstREST.Lib_Primavera
 
         }
 
-        public static List<Model.Artigo> ListaArtigosNome(string nome,int size)
+        public static List<Model.Artigo> ListaArtigosNome(string nome, int size)
         {
 
             StdBELista objList;
@@ -386,7 +387,51 @@ namespace FirstREST.Lib_Primavera
             if (PriEngine.InitializeCompany(FirstREST.Properties.Settings.Default.Company.Trim(), FirstREST.Properties.Settings.Default.User.Trim(), FirstREST.Properties.Settings.Default.Password.Trim()) == true)
             {
 
-                objList = PriEngine.Engine.Consulta("SELECT TOP "+lim+" Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE Artigo.Artigo = ArtigoMoeda.Artigo ORDER BY Artigo.CDU_Ano DESC");
+                objList = PriEngine.Engine.Consulta("SELECT TOP " + lim + " Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE Artigo.Artigo = ArtigoMoeda.Artigo ORDER BY Artigo.CDU_Ano DESC");
+
+                while (!objList.NoFim())
+                {
+                    art = new Model.Artigo();
+                    art.CodArtigo = objList.Valor("artigo");
+                    art.DescArtigo = objList.Valor("descricao");
+                    art.PVP1 = objList.Valor("PVP1");
+                    art.PVP2 = objList.Valor("PVP2");
+                    art.PVP3 = objList.Valor("PVP3");
+                    art.Formato = objList.Valor("CDU_Formato");
+                    art.ISBN10 = objList.Valor("CDU_ISBN10");
+                    art.ISBN13 = objList.Valor("CDU_ISBN13");
+                    art.Ano = objList.Valor("CDU_Ano");
+                    art.Autor = objList.Valor("CDU_Autor");
+                    art.Rating = objList.Valor("CDU_Rating");
+                    art.Sinopse = objList.Valor("CDU_Sinopse");
+                    art.Categoria = objList.Valor("SubFamilia");
+
+                    listArts.Add(art);
+                    objList.Seguinte();
+                }
+
+                return listArts;
+
+            }
+            else
+            {
+                return null;
+
+            }
+
+        }
+        public static List<Model.Artigo> ListaArtigosMelhores(int lim)
+        {
+
+            StdBELista objList;
+
+            Model.Artigo art = new Model.Artigo();
+            List<Model.Artigo> listArts = new List<Model.Artigo>();
+
+            if (PriEngine.InitializeCompany(FirstREST.Properties.Settings.Default.Company.Trim(), FirstREST.Properties.Settings.Default.User.Trim(), FirstREST.Properties.Settings.Default.Password.Trim()) == true)
+            {
+
+                objList = PriEngine.Engine.Consulta("SELECT TOP " + lim + " Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE Artigo.Artigo = ArtigoMoeda.Artigo ORDER BY Artigo.CDU_Rating DESC");
 
                 while (!objList.NoFim())
                 {
@@ -420,9 +465,10 @@ namespace FirstREST.Lib_Primavera
 
         }
 
+
         public static List<Model.Artigo> ListaArtigos()
         {
-                        
+
             StdBELista objList;
 
             Model.Artigo art = new Model.Artigo();
@@ -476,7 +522,7 @@ namespace FirstREST.Lib_Primavera
             if (PriEngine.InitializeCompany(FirstREST.Properties.Settings.Default.Company.Trim(), FirstREST.Properties.Settings.Default.User.Trim(), FirstREST.Properties.Settings.Default.Password.Trim()) == true)
             {
 
-                objList = PriEngine.Engine.Consulta("SELECT Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE ArtigoMoeda.Artigo= Artigo.Artigo AND Artigo.SubFamilia = '"+ cat+"'");
+                objList = PriEngine.Engine.Consulta("SELECT Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE ArtigoMoeda.Artigo= Artigo.Artigo AND Artigo.SubFamilia = '" + cat + "'");
 
                 while (!objList.NoFim())
                 {
@@ -509,17 +555,60 @@ namespace FirstREST.Lib_Primavera
             }
 
         }
+        public static List<Model.Artigo> ListaArtigosAutor(string aut)
+        {
 
+            StdBELista objList;
+
+            Model.Artigo art = new Model.Artigo();
+            List<Model.Artigo> listArts = new List<Model.Artigo>();
+
+            if (PriEngine.InitializeCompany(FirstREST.Properties.Settings.Default.Company.Trim(), FirstREST.Properties.Settings.Default.User.Trim(), FirstREST.Properties.Settings.Default.Password.Trim()) == true)
+            {
+
+                objList = PriEngine.Engine.Consulta("SELECT Artigo.Artigo,Artigo.Descricao,Artigo.CDU_Formato,Artigo.SubFamilia,Artigo.CDU_Sinopse,Artigo.CDU_Rating,Artigo.CDU_Autor,Artigo.CDU_ANO,Artigo.CDU_ISBN13,Artigo.CDU_ISBN10,ArtigoMoeda.PVP1, ArtigoMoeda.PVP2 , ArtigoMoeda.PVP3 FROM Artigo,ArtigoMoeda WHERE ArtigoMoeda.Artigo= Artigo.Artigo AND Artigo.CDU_Autor = '" + aut + "'");
+
+                while (!objList.NoFim())
+                {
+                    art = new Model.Artigo();
+                    art.CodArtigo = objList.Valor("artigo");
+                    art.DescArtigo = objList.Valor("descricao");
+                    art.PVP1 = objList.Valor("PVP1");
+                    art.PVP2 = objList.Valor("PVP2");
+                    art.PVP3 = objList.Valor("PVP3");
+                    art.Formato = objList.Valor("CDU_Formato");
+                    art.ISBN10 = objList.Valor("CDU_ISBN10");
+                    art.ISBN13 = objList.Valor("CDU_ISBN13");
+                    art.Ano = objList.Valor("CDU_Ano");
+                    art.Autor = objList.Valor("CDU_Autor");
+                    art.Rating = objList.Valor("CDU_Rating");
+                    art.Sinopse = objList.Valor("CDU_Sinopse");
+                    art.Categoria = objList.Valor("SubFamilia");
+
+                    listArts.Add(art);
+                    objList.Seguinte();
+                }
+
+                return listArts;
+
+            }
+            else
+            {
+                return null;
+
+            }
+
+        }
         #endregion Artigo
 
-   
+
 
         #region DocCompra
-        
+
 
         public static List<Model.DocCompra> VGR_List()
         {
-                
+
             StdBELista objListCab;
             StdBELista objListLin;
             Model.DocCompra dc = new Model.DocCompra();
@@ -563,7 +652,7 @@ namespace FirstREST.Lib_Primavera
                     }
 
                     dc.LinhasDoc = listlindc;
-                    
+
                     listdc.Add(dc);
                     objListCab.Seguinte();
                 }
@@ -571,11 +660,11 @@ namespace FirstREST.Lib_Primavera
             return listdc;
         }
 
-                
+
         public static Model.RespostaErro VGR_New(Model.DocCompra dc)
         {
             Lib_Primavera.Model.RespostaErro erro = new Model.RespostaErro();
-            
+
 
             GcpBEDocumentoCompra myGR = new GcpBEDocumentoCompra();
             GcpBELinhaDocumentoCompra myLin = new GcpBELinhaDocumentoCompra();
@@ -639,11 +728,11 @@ namespace FirstREST.Lib_Primavera
         {
             Lib_Primavera.Model.RespostaErro erro = new Model.RespostaErro();
             GcpBEDocumentoVenda myEnc = new GcpBEDocumentoVenda();
-             
+
             GcpBELinhaDocumentoVenda myLin = new GcpBELinhaDocumentoVenda();
 
             GcpBELinhasDocumentoVenda myLinhas = new GcpBELinhasDocumentoVenda();
-             
+
             PreencheRelacaoVendas rl = new PreencheRelacaoVendas();
             List<Model.LinhaDocVenda> lstlindv = new List<Model.LinhaDocVenda>();
             bool iniciaTransaccao = false;
@@ -695,18 +784,21 @@ namespace FirstREST.Lib_Primavera
             }
             catch (Exception ex)
             {
-                PriEngine.Engine.DesfazTransaccao();
+                if (iniciaTransaccao)
+                {
+                    PriEngine.Engine.DesfazTransaccao();
+                }
                 erro.Erro = 1;
                 erro.Descricao = ex.Message;
                 return erro;
             }
         }
 
-     
+
 
         public static List<Model.DocVenda> Encomendas_List()
         {
-            
+
             StdBELista objListCab;
             StdBELista objListLin;
             Model.DocVenda dv = new Model.DocVenda();
@@ -756,12 +848,12 @@ namespace FirstREST.Lib_Primavera
         }
 
 
-       
+
 
         public static Model.DocVenda Encomenda_Get(string numdoc)
         {
-            
-            
+
+
             StdBELista objListCab;
             StdBELista objListLin;
             Model.DocVenda dv = new Model.DocVenda();
@@ -770,7 +862,7 @@ namespace FirstREST.Lib_Primavera
 
             if (PriEngine.InitializeCompany(FirstREST.Properties.Settings.Default.Company.Trim(), FirstREST.Properties.Settings.Default.User.Trim(), FirstREST.Properties.Settings.Default.Password.Trim()) == true)
             {
-                
+
 
                 string st = "SELECT id, Entidade, Data, NumDoc, TotalMerc, Serie From CabecDoc where TipoDoc='ECL' and NumDoc='" + numdoc + "'";
                 objListCab = PriEngine.Engine.Consulta(st);

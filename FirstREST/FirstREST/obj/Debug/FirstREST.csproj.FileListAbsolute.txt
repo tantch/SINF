@@ -211,3 +211,4 @@ C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\bin\zh-Han
 C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\obj\Debug\FirstREST.csprojResolveAssemblyReference.cache
 C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\obj\Debug\FirstREST.dll
 C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\obj\Debug\FirstREST.pdb
+C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\bin\XmlDocument.xml

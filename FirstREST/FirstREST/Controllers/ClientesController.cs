@@ -22,8 +22,9 @@ namespace FirstREST.Controllers
 
         // GET api/cliente/5    
         public Cliente Get(string id)
-        {
-            Lib_Primavera.Model.Cliente cliente = Lib_Primavera.PriIntegration.GetCliente(id);
+        {   
+
+            Lib_Primavera.Model.Cliente cliente = Lib_Primavera.PriIntegration.GetCliente("C." + id);
             if (cliente == null)
             {
                 throw new HttpResponseException(
