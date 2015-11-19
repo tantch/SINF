@@ -80,3 +80,17 @@ footer{
 #categ{
     margin-top: 15%;
 }
+
+a.list-group-item:hover,
+a.list-group-item.active{
+    color: #FFF;
+    background-color: rgba(208, 90, 0, 0.88);
+}
+
+a{
+    color: rgba(208, 90, 0, 0.88);
+}
+
+#search_input{
+    width:400px;
+}
