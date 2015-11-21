@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/shop-homepage.css">	
     <link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -23,13 +24,13 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-</head>
+    </head>
 
-<body>
-
-                <!-- Navigation -->
+	<body>
+		
+		                <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -71,64 +72,67 @@
             </div>
         <!-- /.container -->
         </nav>
+				
+		<div class="container text-center">			
+			<div class="col-md-7 col-sm-12 text-left">
+				<ul class="shopping-list">
+					<li class="row list-inline columnCaptions">
+						<span>QTY</span>
+						<span>ITEM</span>
+						<span>Price</span>
+					</li>
+					<li class="row">
+						<span class="quantity">1</span>
+						<span class="itemName">Birthday Cake</span>
+						<span class="popbtn"><a class="arrow"></a></span>
+						<span class="price">$49.95</span>
+					</li>
+					<li class="row">
+						<span class="quantity">50</span>
+						<span class="itemName">Party Cups</span>
+						<span class="popbtn"><a class="arrow"></a></span>
+						<span class="price">$5.00</span>
+					</li>
+					<li class="row">
+						<span class="quantity">20</span>
+						<span class="itemName">Beer kegs</span>
+						<span class="popbtn"><a class="arrow"></a></span>
+						<span class="price">$919.99</span>				
+					</li>
+					<li class="row">
+						<span class="quantity">18</span>
+						<span class="itemName">Pound of beef</span>
+						<span class="popbtn"><a class="arrow"></a></span>
+						<span class="price">$269.45</span>
+					</li>
+					<li class="row">
+						<span class="quantity">1</span>
+						<span class="itemName">Bullet-proof vest</span>
+						<span class="popbtn"  data-parent="#asd" data-toggle="collapse" data-target="#demo"><a class="arrow"></a></span>
+						<span class="price">$450.00</span>				
+					</li>
+					<li class="row totals">
+						<span class="itemName">Total:</span>
+						<span class="price">$1694.43</span>
+						<span class="order"> <a class="text-center">ORDER</a></span>
+					</li>
+				</ul>
+			</div>
 
-    <!-- PRODUCT -->
-    <div class="container">
+		</div>
 
-        <div class="row">
+		<!-- The popover content -->
 
-            <div id="categ" class="col-md-3">
-                <p class="lead">Categories</p>
-                <div class="list-group">
-                    <a href="index.html" class="list-group-item active">Category 1</a>
-                    <a href="index.html" class="list-group-item">Category 2</a>
-                    <a href="index.html" class="list-group-item">Category 3</a>
-                    <a href="index.html" class="list-group-item">Category 4</a>
-                    <a href="index.html" class="list-group-item">Category 5</a>
-                    <a href="index.html" class="list-group-item">Category 6</a>
-                </div>
-            </div>
+		<div id="popover" style="display: none">
+			<a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+			<a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+		</div>
+		
+		<!-- JavaScript includes -->
 
-            <div class="col-md-9">
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/customjs.js"></script>
 
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
-                    <div class="caption-full">
-                        <h4 class="pull-right">$24.99</h4>
-                        <h4>Product Name</a>
-                        </h4>
-                        <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        <p>Want to make these reviews work? Check out
-                            <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
-                            </strong>over at maxoffsky.com!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /PRODUCT -->
-
-    <!-- FOOTER-->
-    <div class="container">
-        <hr>
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Made by David | Pedro | João | Jorge | Vânia<br>SINF 2015</p>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <!-- /FOOTER-->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
+	</body>
 </html>

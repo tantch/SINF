@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,9 +25,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    </head>
+</head>
 
-    <body>
+<body>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -43,17 +44,33 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form class="navbar-form navbar-right" role="search">
-                      <div class="form-group">
-                        <input id="search_input" type="text" class="form-control" placeholder="Search">
+                    <div class="cart">
+                        <div class="popup">
+                            <div class="row header">
+                              <span>Items</span>
+                              <span>Amount</span>
+                            </div>
+                            <div class="row items">
+                              <span>36</span>
+                              <span>$2,345.12</span>
+                            </div>
+                            <div class="row checkout">
+                              <span class="checkout-btn"><a class="checkout-button btn btn-primary" href="#" role="button">Checkout</a></span>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                </form>
-            </div>
+                    <!--SEARCH FORM-->
+                    <form class="navbar-form navbar-right search-bar" role="search">
+                        <div class="form-group">
+                            <input id="search_input" type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </form>
+                </div>
             <!-- /.navbar-collapse -->
-        </div>
+            </div>
         <!-- /.container -->
-    </nav>
+        </nav>
 
     <!-- HOME -->
     <div class="container">
