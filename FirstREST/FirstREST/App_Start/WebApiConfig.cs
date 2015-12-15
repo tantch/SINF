@@ -9,6 +9,7 @@ namespace FirstREST
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors();
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
@@ -24,6 +25,7 @@ namespace FirstREST
             // To disable tracing in your application, please comment out or remove the following line of code
             // For more information, refer to: http://www.asp.net/web-api
             config.EnableSystemDiagnosticsTracing();
+            
         }
     }
 }

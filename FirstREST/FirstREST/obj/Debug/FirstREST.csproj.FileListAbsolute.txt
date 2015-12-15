@@ -212,3 +212,6 @@ C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\obj\Debug\
 C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\obj\Debug\FirstREST.dll
 C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\obj\Debug\FirstREST.pdb
 C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\bin\XmlDocument.xml
+C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\bin\System.Web.Cors.dll
+C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\bin\System.Web.Http.Cors.dll
+C:\SINF\Code_Examples\Hello World INTEG PRIMAVERA\FirstREST\FirstREST\bin\System.Web.Http.Cors.xml

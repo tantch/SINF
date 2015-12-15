@@ -7,10 +7,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FirstREST.Lib_Primavera.Model;
+using System.Web.Http.Cors;
 
 
 namespace FirstREST.Controllers
 {
+     [EnableCors(origins: "http://localhost:8000", headers: "*", methods: "*")]
     public class DocVendaController : ApiController
     {
         //
