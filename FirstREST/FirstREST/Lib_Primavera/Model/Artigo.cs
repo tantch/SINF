@@ -64,6 +64,11 @@ namespace FirstREST.Lib_Primavera.Model
             get;
             set;
         }
+        public String Imagem
+        {
+            get;
+            set;
+        }
         public string Sinopse
         {
             get;
